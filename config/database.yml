@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: kids-catalog_production
-  username: kids-catalog
-  password: <%= ENV['KIDS-CATALOG_DATABASE_PASSWORD'] %>
