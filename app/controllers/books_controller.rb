@@ -9,5 +9,6 @@ class BooksController < ApplicationController
   end
 
   def all
+    @all_books = Book.all
   end
 end

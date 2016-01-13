@@ -9,34 +9,48 @@
 </div>
 
 <h2 class="text-center">Recent Books</h2>
-
-<div class="row col-md-offset-1">
-  <div class="col-md-2">
-    <a href="#">
-      <img src="http://covers.openlibrary.org/b/isbn/<%= @book[:isbn_10].first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book[:isbn_10].first) %>"><%= @book[:title] %></a>
-    </a>
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <img class="book-cover" src="http://covers.openlibrary.org/b/isbn/<%= @book[:isbn_10].first %>-M.jpg" alt="" /><br>
+      <div class="caption">
+        <h3><a href="<%= book_path(@book[:isbn_10].first) %>"><%= @book[:title] %></a></h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
   </div>
 
-  <div class="col-md-2 col-md-offset-1">
-    <a href="#">
-      <img src="http://covers.openlibrary.org/b/isbn/<%= @book_two[:isbn_10].first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book_two[:isbn_10].first) %>"><%= @book_two[:title] %></a>
-    </a>
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <img class="book-cover" src="http://covers.openlibrary.org/b/isbn/<%= @book_two[:isbn_10].first %>-M.jpg" alt="" /><br>
+      <div class="caption">
+        <h3><a href="<%= book_path(@book_two[:isbn_10].first) %>"><%= @book_two[:title] %></a></h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
   </div>
 
-  <div class="col-md-2 col-md-offset-1">
-    <a href="#">
-      <img src="http://covers.openlibrary.org/b/isbn/<%= @book[:isbn_10].first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book[:isbn_10].first) %>"><%= @book[:title] %></a>
-    </a>
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <img class="book-cover" src="http://covers.openlibrary.org/b/isbn/<%= @book[:isbn_10].first %>-M.jpg" alt="" /><br>
+      <div class="caption">
+        <h3><a href="<%= book_path(@book[:isbn_10].first) %>"><%= @book[:title] %></a></h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
   </div>
 
-  <div class="col-md-2 col-md-offset-1">
-    <a href="#">
-      <img src="http://covers.openlibrary.org/b/isbn/<%= @book_two[:isbn_10].first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book_two[:isbn_10].first) %>"><%= @book_two[:title] %></a>
-    </a>
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <img class="book-cover" src="http://covers.openlibrary.org/b/isbn/<%= @book_two[:isbn_10].first %>-M.jpg" alt="" /><br>
+      <div class="caption">
+        <h3><a href="<%= book_path(@book_two[:isbn_10].first) %>"><%= @book_two[:title] %></a></h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
   </div>
 </div>
 

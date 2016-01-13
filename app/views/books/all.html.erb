@@ -1,0 +1,10 @@
+<% @all_books.each do |book| %>
+<div class="row col-md-offset-1">
+  <div class="col-md-2">
+    <a href="#">
+      <img class="all-books-cover" src="http://covers.openlibrary.org/b/isbn/<%= book.isbn %>-L.jpg" alt="" /><br>
+      <a href="<%= book_path(book.isbn) %>"><%= book.title %></a>
+    </a>
+  </div>
+</div>
+<% end %>
