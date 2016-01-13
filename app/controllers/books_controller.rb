@@ -1,11 +1,12 @@
 class BooksController < ApplicationController
   def index
-    @book = service_connection.book('0689857578')
-    @book_two = service_connection.book('067084487X')
+    @book_sample = Book.all.sample(4)
+    @book_sample_two = Book.all.sample(4)
+    @book_sample_three = Book.all.sample(4)
   end
 
   def show
-    @book = service_connection.book('0689857578')
+    @book = Book.find(params[:id])
   end
 
   def all

@@ -1,9 +1,21 @@
 .book-cover {
-    height: 250px;
+    height: 225px !important;
     width: auto;
 }
 
 .all-books-cover {
     height: auto;
     width: 250px;
+}
+
+.large-cover {
+  height: 400px
+}
+
+.card-border {
+    outline: 1px solid black;
+}
+
+body {
+    background-image: url("http://img01.deviantart.net/5e6e/i/2010/201/8/a/rice_paper_texture_by_maplerose_stock.jpg");
 }

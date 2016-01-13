@@ -1,5 +1,4 @@
-<h1 class="text-center"><%= @book[:title] %></h1>
-<img class="center-block" src="http://covers.openlibrary.org/b/isbn/<%= @book[:isbn_10].first %>-L.jpg" alt="" /><br>
-<p class="text-center">Author: <p>
-<p class="text-center">Publisher: <%= @book[:publishers].first %></p>
-<p class="text-center">ISBN: <%= @book[:isbn_10].first %></p>
+<h1 class="text-center"><%= @book.title %></h1>
+<img class="center-block large-cover" src="http://covers.openlibrary.org/b/isbn/<%= @book.isbn %>-L.jpg" alt="" /><br>
+<h3 class="text-center">Author: <%= @book.author_first_name %> <%= @book.author_last_name %></h3>
+<p class="text-center">ISBN: <%= @book.isbn %></p>
