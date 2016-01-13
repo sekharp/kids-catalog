@@ -11,95 +11,35 @@
 <h2 class="text-center">Recent Books</h2>
 
 <div class="row col-md-offset-1">
-  <div class="col-xs-4 col-md-2 thumbnail">
+  <div class="col-md-2">
     <a href="#">
-      <img class="book" src="http://covers.openlibrary.org/b/isbn/<%= @book.isbn_10.first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book.isbn_10) %>"><%= @book.title %></a>
+      <img src="http://covers.openlibrary.org/b/isbn/<%= @book[:isbn_10].first %>-M.jpg" alt="" /><br>
+      <a href="<%= book_path(@book[:isbn_10].first) %>"><%= @book[:title] %></a>
     </a>
   </div>
 
-  <div class="col-xs-4 col-md-2 thumbnail col-md-offset-1">
+  <div class="col-md-2 col-md-offset-1">
     <a href="#">
-      <img class="book" src="http://covers.openlibrary.org/b/isbn/<%= @book_two.isbn_10.first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book_two.isbn_10) %>"><%= @book_two.title %></a>
+      <img src="http://covers.openlibrary.org/b/isbn/<%= @book_two[:isbn_10].first %>-M.jpg" alt="" /><br>
+      <a href="<%= book_path(@book_two[:isbn_10].first) %>"><%= @book_two[:title] %></a>
     </a>
   </div>
 
-  <div class="col-xs-4 col-md-2 thumbnail col-md-offset-1">
+  <div class="col-md-2 col-md-offset-1">
     <a href="#">
-      <img class="book" src="http://covers.openlibrary.org/b/isbn/<%= @book.isbn_10.first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book.isbn_10) %>"><%= @book.title %></a>
+      <img src="http://covers.openlibrary.org/b/isbn/<%= @book[:isbn_10].first %>-M.jpg" alt="" /><br>
+      <a href="<%= book_path(@book[:isbn_10].first) %>"><%= @book[:title] %></a>
     </a>
   </div>
 
-  <div class="col-xs-4 col-md-2 thumbnail col-md-offset-1">
+  <div class="col-md-2 col-md-offset-1">
     <a href="#">
-      <img class="book" src="http://covers.openlibrary.org/b/isbn/<%= @book_two.isbn_10.first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book_two.isbn_10) %>"><%= @book_two.title %></a>
+      <img src="http://covers.openlibrary.org/b/isbn/<%= @book_two[:isbn_10].first %>-M.jpg" alt="" /><br>
+      <a href="<%= book_path(@book_two[:isbn_10].first) %>"><%= @book_two[:title] %></a>
     </a>
   </div>
 </div>
 
 <h2 class="text-center">Suggested Books</h2>
 
-<div class="row col-md-offset-1">
-  <div class="col-xs-4 col-md-2 thumbnail">
-    <a href="#">
-      <img class="book" src="http://covers.openlibrary.org/b/isbn/<%= @book.isbn_10.first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book.isbn_10) %>"><%= @book.title %></a>
-    </a>
-  </div>
-
-  <div class="col-xs-4 col-md-2 thumbnail col-md-offset-1">
-    <a href="#">
-      <img class="book" src="http://covers.openlibrary.org/b/isbn/<%= @book_two.isbn_10.first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book_two.isbn_10) %>"><%= @book_two.title %></a>
-    </a>
-  </div>
-
-  <div class="col-xs-4 col-md-2 thumbnail col-md-offset-1">
-    <a href="#">
-      <img class="book" src="http://covers.openlibrary.org/b/isbn/<%= @book.isbn_10.first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book.isbn_10) %>"><%= @book.title %></a>
-    </a>
-  </div>
-
-  <div class="col-xs-4 col-md-2 thumbnail col-md-offset-1">
-    <a href="#">
-      <img class="book" src="http://covers.openlibrary.org/b/isbn/<%= @book_two.isbn_10.first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book_two.isbn_10) %>"><%= @book_two.title %></a>
-    </a>
-  </div>
-</div>
-
 <h2 class="text-center">Teacher's Choice Books</h2>
-
-<div class="row col-md-offset-1">
-  <div class="col-xs-4 col-md-2 thumbnail">
-    <a href="#">
-      <img class="book" src="http://covers.openlibrary.org/b/isbn/<%= @book.isbn_10.first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book.isbn_10) %>"><%= @book.title %></a>
-    </a>
-  </div>
-
-  <div class="col-xs-4 col-md-2 thumbnail col-md-offset-1">
-    <a href="#">
-      <img class="book" src="http://covers.openlibrary.org/b/isbn/<%= @book_two.isbn_10.first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book_two.isbn_10) %>"><%= @book_two.title %></a>
-    </a>
-  </div>
-
-  <div class="col-xs-4 col-md-2 thumbnail col-md-offset-1">
-    <a href="#">
-      <img class="book" src="http://covers.openlibrary.org/b/isbn/<%= @book.isbn_10.first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book.isbn_10) %>"><%= @book.title %></a>
-    </a>
-  </div>
-
-  <div class="col-xs-4 col-md-2 thumbnail col-md-offset-1">
-    <a href="#">
-      <img class="book" src="http://covers.openlibrary.org/b/isbn/<%= @book_two.isbn_10.first %>-M.jpg" alt="" /><br>
-      <a href="<%= book_path(@book_two.isbn_10) %>"><%= @book_two.title %></a>
-    </a>
-  </div>
-</div>
