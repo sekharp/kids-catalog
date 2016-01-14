@@ -7,6 +7,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @cover_url = @book.cover_url(@book.isbn)
   end
 
   def all
