@@ -27,6 +27,7 @@ gem 'bootstrap-sass'
 gem 'pry'
 gem 'figaro'
 gem 'hurley'
+gem 'omniauth-google-oauth2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

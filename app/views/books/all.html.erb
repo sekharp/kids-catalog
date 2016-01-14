@@ -14,7 +14,7 @@
     <div class="row col-md-offset-1">
       <div class="col-md-2">
         <a href="#">
-          <img class="all-books-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
+          <img class="all-books-cover" src="http://covers.openlibrary.org/b/isbn/<%= book.isbn %>-L.jpg" alt="" /><br>
           <div class="book-title">
             <a href="<%= book_path(book.id) %>"><%= book.title %></a>
           </div>
