@@ -1,0 +1,11 @@
+<h1>Login</h1>
+
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.submit "Login" %>
+<% end %>
+
+<a href="<%= oauth_path %>" class="btn btn-primary" role="button">Login with Google</a>

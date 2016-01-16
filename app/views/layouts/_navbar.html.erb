@@ -21,9 +21,9 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Student<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Profile</a></li>
+            <li><a href="<%= dashboard_path %>">Profile</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Write a Report</a></li>
+            <li><a href="#">Favorite Books</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Accelerated Reader</a></li>
           </ul>
@@ -31,7 +31,12 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <% if current_user %>
+          <li><%= link_to "Logout", logout_path , method: :delete %></li>
+        <% else %>
+          <li><a href="<%= login_path %>">Login</a></li>
+          <li><%= link_to "Create Account", new_user_path %></li>
+        <% end %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
