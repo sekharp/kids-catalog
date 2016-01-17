@@ -4,8 +4,8 @@
 <p class="text-center">ISBN: <%= @book.isbn %></p>
 <p class="text-center"><a href="#" class="btn btn-primary" role="button">Favorite</a> <a href="#" class="btn btn-default" role="button">Mark As Read</a></p>
 
-<p>
-
-Book Info: <%= @book_info %>
-
-</p>
+<% if @book_info[:items].nil? %>
+<p>Book Description: Not Available</p>
+<% else %>
+<p>Book Description:  <%= @book_description %>
+<% end %>

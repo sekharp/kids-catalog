@@ -3,5 +3,4 @@ class Book < ActiveRecord::Base
     service_connection = LibraryService.new
     service_connection.cover_url(isbn)
   end
-
 end
