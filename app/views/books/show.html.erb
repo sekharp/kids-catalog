@@ -5,7 +5,9 @@
 <p class="text-center"><a href="#" class="btn btn-primary" role="button">Favorite</a> <a href="#" class="btn btn-default" role="button">Mark As Read</a></p>
 
 <% if @book_info[:items].nil? %>
-<p>Book Description: Not Available</p>
+<p>Book Description: Not Available</p></br>
 <% else %>
-<p>Book Description:  <%= @book_description %>
+<p>Book Description:  <%= @book_description %></p></br>
 <% end %>
+
+Subjects: <%= @book_ol_data[:subjects] %>
