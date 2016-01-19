@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#destroy"
   get '/dashboard', to: 'users#show'
   get '/dashboard/edit', to: "users#edit"
+  put '/dashboard', to: "users#update"
+
   get '*unmatched_route', to: 'application#not_found'
 end

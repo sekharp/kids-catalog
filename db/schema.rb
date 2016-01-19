@@ -26,17 +26,17 @@ ActiveRecord::Schema.define(version: 20160117221446) do
   end
 
   create_table "books_users", id: false, force: :cascade do |t|
-    t.integer "book_id",   null: false
-    t.integer "user_id",   null: false
+    t.integer "book_id",    null: false
+    t.integer "user_id",    null: false
+    t.integer "book_id_id"
+    t.integer "user_id_id"
     t.boolean "favorited"
     t.boolean "read"
   end
 
-  add_index "books_users", ["book_id"], name: "index_books_users_on_book_id", using: :btree
-  add_index "books_users", ["user_id"], name: "index_books_users_on_user_id", using: :btree
-
   create_table "users", force: :cascade do |t|
     t.integer  "grade"
+    t.string   "password_digest"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "provider"

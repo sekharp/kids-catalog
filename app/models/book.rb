@@ -1,5 +1,6 @@
 class Book < ActiveRecord::Base
-  has_many :book_users
+  has_many :books_users
+  # has_many :users, through: :books_users
 
   def cover_url(isbn)
     service_connection = LibraryService.new
