@@ -29,6 +29,7 @@ gem 'figaro'
 gem 'hurley'
 gem 'omniauth-google-oauth2'
 gem 'httparty'
+gem 'skylight'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

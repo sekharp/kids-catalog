@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :book_users
+
   def self.create_or_find_by_auth(auth)
     user = User.find_or_create_by(provider: auth.provider, uid: auth.uid)
 

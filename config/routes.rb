@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :books
   resources :users, only: [:new, :create, :update]
+  resources :favorites, only: [:create, :update]
   get '/all_books', to: 'books#all'
   get '/auth/google_oauth2', as: 'oauth'
   get "/auth/google_oauth2/callback", to: "sessions#create"
@@ -9,4 +10,5 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#destroy"
   get '/dashboard', to: 'users#show'
   get '/dashboard/edit', to: "users#edit"
+  get '*unmatched_route', to: 'application#not_found'
 end
