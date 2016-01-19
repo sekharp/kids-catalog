@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :books_users
-  # has_many :books, through: :books_users
+  has_many :user_books
+  has_many :books, through: :user_books
   validates :email, presence: true,
                     uniqueness: true
   validates :password, presence: true
@@ -21,5 +21,10 @@ class User < ActiveRecord::Base
 
     user.save
     user
+  end
+
+  def favorite_books
+    book_ids = user_books.where(favorited: true).pluck(:book_id)
+    Book.find(book_ids)
   end
 end

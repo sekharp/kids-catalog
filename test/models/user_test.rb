@@ -17,6 +17,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "user can be found" do
+  skip
    User.create_or_find_by_auth(auth_info)
    user = User.last
 
@@ -25,6 +26,17 @@ class UserTest < ActiveSupport::TestCase
    assert_equal 'sekharp', user.screen_name
    assert_equal '67', user.oauth_token
    assert_equal '89', user.oauth_token_secret
+  end
+
+  test "user's favorite books" do
+    user = User.create(valid_params)
+    book = Book.create(title: "Test Book")
+    user.user_books.create(user_id: user.id, book_id: book.id, favorited: true, read: false)
+
+    book_two = Book.create(title: "Test Book Two")
+    user.user_books.create(user_id: user.id, book_id: book.id, favorited: false, read: false)
+
+    assert_equal [book], user.favorite_books
   end
 
   # test "it is valid with correct params" do

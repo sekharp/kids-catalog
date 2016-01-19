@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160117221446) do
+ActiveRecord::Schema.define(version: 20160119214107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,14 +25,17 @@ ActiveRecord::Schema.define(version: 20160117221446) do
     t.string   "isbn"
   end
 
-  create_table "books_users", id: false, force: :cascade do |t|
-    t.integer "book_id",    null: false
-    t.integer "user_id",    null: false
-    t.integer "book_id_id"
-    t.integer "user_id_id"
-    t.boolean "favorited"
-    t.boolean "read"
+  create_table "user_books", force: :cascade do |t|
+    t.boolean  "favorited"
+    t.boolean  "read"
+    t.integer  "book_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+  add_index "user_books", ["book_id"], name: "index_user_books_on_book_id", using: :btree
+  add_index "user_books", ["user_id"], name: "index_user_books_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.integer  "grade"
@@ -49,4 +52,6 @@ ActiveRecord::Schema.define(version: 20160117221446) do
     t.datetime "token_expires_at"
   end
 
+  add_foreign_key "user_books", "books"
+  add_foreign_key "user_books", "users"
 end
