@@ -14,7 +14,6 @@ class FavoritesController < ApplicationController
       book_user.update(:favorited => true)
     else
       book_user = BookUser.where(book_id: params[:book_id], user_id: params[:user_id]).first
-      binding.pry
       book_user.update(:favorited => false)
     end
     book = Book.find(params[:book_id])
