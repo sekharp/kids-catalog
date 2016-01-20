@@ -14,6 +14,7 @@ class BooksController < ApplicationController
     @book_subjects = @book_ol_data[:subjects]
     @book_info = parse(googlebooks(@book.isbn))
     @book_description = @book_info[:items][0][:volumeInfo][:description] unless @book_info[:items].nil?
+    binding.pry
   end
 
   def all

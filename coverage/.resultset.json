@@ -1,33 +1,6 @@
 {
   "MiniTest": {
     "coverage": {
-      "/Users/sekharpaladugu/Code/Projects/kids-catalog/app/models/user.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null
-      ],
       "/Users/sekharpaladugu/Code/Projects/kids-catalog/app/controllers/home_controller.rb": [
         1,
         1,
@@ -74,6 +47,33 @@
         1,
         null
       ],
+      "/Users/sekharpaladugu/Code/Projects/kids-catalog/app/models/user.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null
+      ],
       "/Users/sekharpaladugu/Code/Projects/kids-catalog/app/controllers/books_controller.rb": [
         0,
         0,
@@ -99,6 +99,15 @@
         0
       ],
       "/Users/sekharpaladugu/Code/Projects/kids-catalog/app/controllers/favorites_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -419,6 +428,6 @@
         0
       ]
     },
-    "timestamp": 1453256272
+    "timestamp": 1453266243
   }
 }

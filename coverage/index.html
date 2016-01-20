@@ -14,14 +14,14 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-01-19T19:17:52-07:00">2016-01-19T19:17:52-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-01-19T22:04:03-07:00">2016-01-19T22:04:03-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">5.32%</span></span>
+    (<span class="covered_percent"><span class="red">5.19%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
@@ -32,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>18</b> files in total.
-    <b>357</b> relevant lines. 
+    <b>366</b> relevant lines. 
     <span class="green"><b>19</b> lines covered</span> and
-    <span class="red"><b>338</b> lines missed </span>
+    <span class="red"><b>347</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -73,10 +73,10 @@
       <tr>
         <td class="strong"><a href="#af6b91ad4e2fbaabb90c180a050f978cb40d2a4c" class="src_link" title="app/controllers/favorites_controller.rb">app/controllers/favorites_controller.rb</a></td>
         <td class="red strong">0.0 %</td>
-        <td>31</td>
-        <td>31</td>
+        <td>40</td>
+        <td>40</td>
         <td>0</td>
-        <td>31</td>
+        <td>40</td>
         <td>0.0</td>
       </tr>
       
@@ -239,7 +239,7 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">7.81%</span></span>
+    (<span class="covered_percent"><span class="red">7.3%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
@@ -250,9 +250,9 @@
   <a name="Controllers"></a>
   <div>
     <b>6</b> files in total.
-    <b>128</b> relevant lines. 
+    <b>137</b> relevant lines. 
     <span class="green"><b>10</b> lines covered</span> and
-    <span class="red"><b>118</b> lines missed </span>
+    <span class="red"><b>127</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -291,10 +291,10 @@
       <tr>
         <td class="strong"><a href="#af6b91ad4e2fbaabb90c180a050f978cb40d2a4c" class="src_link" title="app/controllers/favorites_controller.rb">app/controllers/favorites_controller.rb</a></td>
         <td class="red strong">0.0 %</td>
-        <td>31</td>
-        <td>31</td>
+        <td>40</td>
+        <td>40</td>
         <td>0</td>
-        <td>31</td>
+        <td>40</td>
         <td>0.0</td>
       </tr>
       
@@ -916,9 +916,9 @@
     <h3>app/controllers/favorites_controller.rb</h3>
     <h4><span class="red">0.0 %</span> covered</h4>
     <div>
-      <b>31</b> relevant lines. 
+      <b>40</b> relevant lines. 
       <span class="green"><b>0</b> lines covered</span> and
-      <span class="red"><b>31</b> lines missed.</span>
+      <span class="red"><b>40</b> lines missed.</span>
     </div>
   </div>
   
@@ -994,103 +994,103 @@
         <li class="missed" data-hits="0" data-linenumber="12">
           
           
-          <code class="ruby">    if params[:favorited] == &quot;false&quot;</code>
+          <code class="ruby">    book = Book.find(params[:book_id])</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="13">
           
           
-          <code class="ruby">      book_user = UserBook.where(book_id: params[:book_id], user_id: params[:user_id]).first</code>
+          <code class="ruby">    if params[:favorited] == &quot;true&quot;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="14">
           
           
-          <code class="ruby">      book_user.update(:favorited =&gt; false)</code>
+          <code class="ruby">      book_user = UserBook.where(book_id: params[:book_id], user_id: params[:user_id]).first</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="15">
           
           
-          <code class="ruby">    else</code>
+          <code class="ruby">      book_user.update(:favorited =&gt; true)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="16">
           
           
-          <code class="ruby">      book_user = UserBook.where(book_id: params[:book_id], user_id: params[:user_id]).first</code>
+          <code class="ruby">      flash[:success] = &quot;Successfully added favorite status for the book #{book.title}.&quot;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="17">
           
           
-          <code class="ruby">      book_user.update(:favorited =&gt; true)</code>
+          <code class="ruby">    elsif params[:favorited] == &quot;false&quot;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="18">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">      book_user = UserBook.where(book_id: params[:book_id], user_id: params[:user_id]).first</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="19">
           
           
-          <code class="ruby">    book = Book.find(params[:book_id])</code>
+          <code class="ruby">      book_user.update(:favorited =&gt; false)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="20">
           
           
-          <code class="ruby">    redirect_to book_path(id: book.id)</code>
+          <code class="ruby">      flash[:success] = &quot;Successfully removed favorite status for the book #{book.title}.&quot;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="21">
           
           
-          <code class="ruby">    flash[:success] = &quot;Successfully updated favorite status for the book #{book.title}.&quot;</code>
+          <code class="ruby">    elsif params[:read] == &quot;true&quot;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="22">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">      book_user = UserBook.where(book_id: params[:book_id], user_id: params[:user_id]).first</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="23">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      book_user.update(:read =&gt; true)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="24">
           
           
-          <code class="ruby">  private</code>
+          <code class="ruby">      flash[:success] = &quot;Successfully added mark as read status for the book #{book.title}.&quot;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="25">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    else</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="26">
           
           
-          <code class="ruby">  def require_login</code>
+          <code class="ruby">      book_user = UserBook.where(book_id: params[:book_id], user_id: params[:user_id]).first</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="27">
           
           
-          <code class="ruby">    unless current_user</code>
+          <code class="ruby">      book_user.update(:read =&gt; false)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="28">
           
           
-          <code class="ruby">      redirect_to login_path</code>
+          <code class="ruby">      flash[:success] = &quot;Successfully removed mark as read status for the book #{book.title}.&quot;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="29">
@@ -1102,10 +1102,64 @@
         <li class="missed" data-hits="0" data-linenumber="30">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    redirect_to book_path(id: book.id)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="31">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="32">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="33">
+          
+          
+          <code class="ruby">  private</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="34">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="35">
+          
+          
+          <code class="ruby">  def require_login</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="36">
+          
+          
+          <code class="ruby">    unless current_user</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="37">
+          
+          
+          <code class="ruby">      redirect_to login_path</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="38">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="39">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="40">
           
           
           <code class="ruby">end</code>
