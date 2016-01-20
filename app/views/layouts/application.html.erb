@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <%= render partial: 'layouts/navbar' %>
+
 <% if flash[:success] %>
   <div class="alert alert-success" role="alert"><%= flash[:success] %></div>
   </div>

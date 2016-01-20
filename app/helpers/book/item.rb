@@ -1,4 +1,5 @@
 module GoogleBooks
+  # :nocov:
 
   class Item
     attr_reader :kind, :id, :title, :titles_array, :authors, :authors_array, :publisher, :published_date, :description, :isbn, :isbn_10, :isbn_13, :other_identifier, :page_count, :print_type, :categories, :average_rating, :ratings_count, :language, :preview_link, :info_link, :sale_info
@@ -68,4 +69,5 @@ module GoogleBooks
     end
   end
 
+  # :nocov:
 end

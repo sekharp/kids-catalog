@@ -4,8 +4,8 @@ class UserTest < ActiveSupport::TestCase
   valid_params = { first_name: "Pumpkin",
                    last_name:  "Burgess",
                    grade:      "2",
-                   email:      "pumpkinburgess@yahoo.com",
-                   password:   "iloveblankets" }
+                   email:      "pumpkinburgess@yahoo.com"
+                 }
 
   def auth_info
    OmniAuth::AuthHash.new({

@@ -1,6 +1,5 @@
 ENV['RAILS_ENV'] ||= 'test'
   require 'simplecov'
-  SimpleCov.start("rails")
 
   require File.expand_path('../../config/environment', __FILE__)
   require 'rails/test_help'
@@ -8,7 +7,9 @@ ENV['RAILS_ENV'] ||= 'test'
   require 'mocha/mini_test'
   require 'capybara/rails'
 
-SimpleCov.start("rails")
+SimpleCov.start("rails") do
+  nocov_token('nocov')
+end
 
 class ActiveSupport::TestCase
 end
