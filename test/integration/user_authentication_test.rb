@@ -6,32 +6,28 @@ class UserAuthenticationTest < ActionDispatch::IntegrationTest
       assert page.has_content?("Login")
     end
   end
-
-  test "visitor can create account and sign in" do
-    visit root_path
-
-    click_link "Create Account"
-
-    fill_in "First name", with: "Sekhar"
-    fill_in "Last name", with: "Paladugu"
-    fill_in "Grade", with: "3"
-    fill_in "Email", with: "sekharp@gmail.com"
-    fill_in "Password", with: "password"
-    click_button "Create Account"
-
-    assert_equal '/dashboard', current_path
-    within("#nav-bar") do
-      assert page.has_content?("Logged in as Sekhar Paladugu")
-    end
-    within("#profile") do
-      assert page.has_content?("Profile")
-      assert page.has_content?("Sekhar")
-    end
-    within("#primary-navigation") do
-      refute page.has_content?("Login")
-      assert page.has_content?("Logout")
-    end
-  end
+  #
+  # test "visitor can use oauth to sign in" do
+  #   visit root_path
+  #
+  #   click_link "Login"
+  #
+  #   click_link "Sign in with Google"
+  #   save_and_open_page
+  #
+  #   assert_equal '/dashboard', current_path
+  #   within("#nav-bar") do
+  #     assert page.has_content?("Logged in as Sekhar Paladugu")
+  #   end
+  #   within("#profile") do
+  #     assert page.has_content?("Profile")
+  #     assert page.has_content?("Sekhar")
+  #   end
+  #   within("#primary-navigation") do
+  #     refute page.has_content?("Login")
+  #     assert page.has_content?("Logout")
+  #   end
+  # end
 
   test "user can login and logout" do
     skip

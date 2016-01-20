@@ -7,6 +7,10 @@ class BookPresenter
     @book = book
   end
 
+  def user_books
+    self.user_books
+  end
+
   def book_id
     self.book.id
   end

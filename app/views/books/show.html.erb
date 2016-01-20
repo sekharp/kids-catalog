@@ -8,35 +8,19 @@
     <p class="text-center">
       <div class="text-center">
         <% if current_user %>
-          <% if UserBook.where(book_id: @show_book.book_id, user_id: current_user.id).empty? %>
-            <%= button_to "Favorite", favorites_path(book_id: @show_book.book_id, user_id: current_user.id, favorited: true), {class: 'btn btn-primary btn-lg'} %></br>
-            <%= button_to "Mark As Read", favorites_path(book_id: @show_book.book_id, user_id: current_user.id, read: true), {class: "btn btn-default btn-lg"} %></br>
-          <% else %>
-            <% if UserBook.where(book_id: @show_book.book_id, user_id: current_user.id, favorited: true, read: true).present? %>
-              <%= button_to "Remove Favorite", favorite_path(book_id: @show_book.book_id, user_id: current_user.id, favorited: false), {method: :patch, class: 'btn btn-primary btn-lg'} %></br>
-              <%= button_to "Remove Mark As Read", favorite_path(book_id: @show_book.book_id, user_id: current_user.id, read: false), {method: :patch, class: 'btn btn-default btn-lg'} %></br>
-            <% elsif UserBook.where(book_id: @show_book.book_id, user_id: current_user.id, favorited: true, read: false).present? %>
-              <%= button_to "Remove Favorite", favorite_path(book_id: @show_book.book_id, user_id: current_user.id, favorited: false), {method: :patch, class: 'btn btn-primary btn-lg'} %></br>
-              <%= button_to "Mark As Read", favorite_path(book_id: @show_book.book_id, user_id: current_user.id, read: true), {method: :patch, class: 'btn btn-default btn-lg'} %></br>
-            <% elsif UserBook.where(book_id: @show_book.book_id, user_id: current_user.id, favorited: false, read: true).present? %>
-              <%= button_to "Favorite", favorite_path(book_id: @show_book.book_id, user_id: current_user.id, favorited: true), {method: :patch, class: 'btn btn-primary btn-lg'} %></br>
-              <%= button_to "Remove Mark As Read", favorite_path(book_id: @show_book.book_id, user_id: current_user.id, read: false), {method: :patch, class: 'btn btn-default btn-lg'} %></br>
-            <% else %>
-              <%= button_to "Favorite", favorite_path(book_id: @show_book.book_id, user_id: current_user.id, favorited: true), {method: :patch, class: 'btn btn-primary btn-lg'} %></br>
-              <%= button_to "Mark As Read", favorite_path(book_id: @show_book.book_id, user_id: current_user.id, read: true), {method: :patch, class: 'btn btn-default btn-lg'} %></br>
-            <% end %>
-          <% end %>
+          <%= render partial: favorite_button_for(@show_book) %>
+          <%= render partial: mark_as_read_button_for(@show_book) %>
         <% else %>
-        <%= button_to "Favorite", login_path, {method: :get, class: 'btn btn-primary btn-lg'} %></br>
-        <%= button_to "Mark As Read", login_path, {method: :get, class: 'btn btn-default btn-lg'} %>
+          <%= button_to "Favorite", login_path, {method: :get, class: 'btn btn-primary btn-lg'} %></br>
+          <%= button_to "Mark As Read", login_path, {method: :get, class: 'btn btn-default btn-lg'} %>
         <% end %>
       </div>
     </p>
 
   <% if @show_book.google_books_data.nil? %>
-  <p align="left">Book Description: Not Available</p></br>
+    <p align="left">Book Description: Not Available</p></br>
   <% else %>
-  <p align="left">Book Description:  <%= @show_book.description %></p></br>
+    <p align="left">Book Description:  <%= @show_book.description %></p></br>
   <% end %>
 
   <p class="text-center">
