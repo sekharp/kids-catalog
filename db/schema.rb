@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 20160119233616) do
   end
 
   create_table "user_books", force: :cascade do |t|
-    t.boolean  "favorited"
-    t.boolean  "read"
+    t.boolean  "favorited",  default: false
+    t.boolean  "read",       default: false
     t.integer  "book_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "user_books", ["book_id"], name: "index_user_books_on_book_id", using: :btree

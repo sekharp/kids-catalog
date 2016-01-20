@@ -3,11 +3,20 @@
     <% if current_user %>
       <% if UserBook.where(book_id: @book.id, user_id: current_user.id).empty? %>
         <%= button_to "Favorite", favorites_path(book_id: @book.id, user_id: current_user.id, favorited: true) %></br>
+        <%= button_to "Mark As Read", favorites_path(book_id: @book.id, user_id: current_user.id, read: true) %></br>
       <% elsif %>
-        <% if UserBook.where(book_id: @book.id, user_id: current_user.id, favorited: true).empty? %>
-          <%= button_to "Favorite", favorite_path(book_id: @book.id, user_id: current_user.id, favorited: true), method: :patch %></br>
-        <% else %>
+        <% if UserBook.where(book_id: @book.id, user_id: current_user.id, favorited: true, read: true).present? %>
           <%= button_to "Remove Favorite", favorite_path(book_id: @book.id, user_id: current_user.id, favorited: false), method: :patch %></br>
+          <%= button_to "Remove Mark As Read", favorite_path(book_id: @book.id, user_id: current_user.id, read: false), method: :patch %></br>
+        <% elsif UserBook.where(book_id: @book.id, user_id: current_user.id, favorited: true, read: false).present? %>
+          <%= button_to "Remove Favorite", favorite_path(book_id: @book.id, user_id: current_user.id, favorited: false), method: :patch %></br>
+          <%= button_to "Mark As Read", favorite_path(book_id: @book.id, user_id: current_user.id, read: true), method: :patch %></br>
+        <% elsif UserBook.where(book_id: @book.id, user_id: current_user.id, favorited: false, read: true).present? %>
+          <%= button_to "Favorite", favorite_path(book_id: @book.id, user_id: current_user.id, favorited: true), method: :patch %></br>
+          <%= button_to "Remove Mark As Read", favorite_path(book_id: @book.id, user_id: current_user.id, read: false), method: :patch %></br>
+        <% else %>
+          <%= button_to "Favorite", favorite_path(book_id: @book.id, user_id: current_user.id, favorited: true), method: :patch %></br>
+          <%= button_to "Mark As Read", favorite_path(book_id: @book.id, user_id: current_user.id, read: true), method: :patch %></br>
         <% end %>
       <% end %>
     <% else %>

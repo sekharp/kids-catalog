@@ -9,16 +9,25 @@ class FavoritesController < ApplicationController
   end
 
   def update
-    if params[:favorited] == "false"
-      book_user = UserBook.where(book_id: params[:book_id], user_id: params[:user_id]).first
-      book_user.update(:favorited => false)
-    else
+    book = Book.find(params[:book_id])
+    if params[:favorited] == "true"
       book_user = UserBook.where(book_id: params[:book_id], user_id: params[:user_id]).first
       book_user.update(:favorited => true)
+      flash[:success] = "Successfully added favorite status for the book #{book.title}."
+    elsif params[:favorited] == "false"
+      book_user = UserBook.where(book_id: params[:book_id], user_id: params[:user_id]).first
+      book_user.update(:favorited => false)
+      flash[:success] = "Successfully removed favorite status for the book #{book.title}."
+    elsif params[:read] == "true"
+      book_user = UserBook.where(book_id: params[:book_id], user_id: params[:user_id]).first
+      book_user.update(:read => true)
+      flash[:success] = "Successfully added mark as read status for the book #{book.title}."
+    else
+      book_user = UserBook.where(book_id: params[:book_id], user_id: params[:user_id]).first
+      book_user.update(:read => false)
+      flash[:success] = "Successfully removed mark as read status for the book #{book.title}."
     end
-    book = Book.find(params[:book_id])
     redirect_to book_path(id: book.id)
-    flash[:success] = "Successfully updated favorite status for the book #{book.title}."
   end
 
   private
