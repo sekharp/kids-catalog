@@ -1,11 +1,6 @@
 class User < ActiveRecord::Base
-  has_secure_password
   has_many :user_books
   has_many :books, through: :user_books
-  validates :email, presence: true,
-                    uniqueness: true
-  validates :password, presence: true
-  validates :grade, presence: true
 
   def self.create_or_find_by_auth(auth)
     user = User.find_or_create_by(provider: auth.provider, uid: auth.uid)

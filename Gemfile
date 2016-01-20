@@ -30,7 +30,6 @@ gem 'hurley'
 gem 'omniauth-google-oauth2'
 gem 'httparty'
 gem 'skylight'
-gem 'bcrypt', '~> 3.1.7'
 gem 'shoulda'
 
 # Use ActiveModel has_secure_password

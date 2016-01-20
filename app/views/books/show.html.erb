@@ -1,35 +1,39 @@
-<h1 class="text-center"><%= @book.title %></h1>
-<img class="center-block large-cover" src="<%= @cover_url %>" alt="" /><br>
-<h3 class="text-center">Author: <%= @book.author_first_name %> <%= @book.author_last_name %></h3>
-<p class="text-center">ISBN: <%= @book.isbn %></p>
 <p class="text-center">
-<div class="text-center">
-  <% if current_user %>
-    <% if BooksUsers.where(book_id: @book.id, user_id: current_user.id).empty? %>
-      <%= button_to "Favorite", favorites_path(book_id: @book.id, user_id: current_user.id, favorited: true) %></br>
-      <%= button_to "Mark As Read", favorites_path %>
-    <% else %>
-      <% if BooksUsers.where(book_id: @book.id, user_id: current_user.id, favorited: false).empty? %>
-        <%= button_to "Remove Favorite", favorite_path(book_id: @book.id, user_id: current_user.id, favorited: false), method: :put %></br>
-      <% else %>
-        <%= button_to "Favorite", favorite_path(book_id: @book.id, user_id: current_user.id, favorited: true), method: :put %></br>
+  <div class="text-center">
+    <% if current_user %>
+      <% if UserBook.where(book_id: @book.id, user_id: current_user.id).empty? %>
+        <%= button_to "Favorite", favorites_path(book_id: @book.id, user_id: current_user.id, favorited: true) %></br>
+      <% elsif %>
+        <% if UserBook.where(book_id: @book.id, user_id: current_user.id, favorited: true).empty? %>
+          <%= button_to "Favorite", favorite_path(book_id: @book.id, user_id: current_user.id, favorited: true), method: :patch %></br>
+        <% else %>
+          <%= button_to "Remove Favorite", favorite_path(book_id: @book.id, user_id: current_user.id, favorited: false), method: :patch %></br>
+        <% end %>
       <% end %>
-    <% end %>
-  <% else %>
+    <% else %>
     <%= button_to "Favorite", login_path, method: :get %></br>
     <%= button_to "Mark As Read", login_path, method: :get %>
+    <% end %>
+  </div>
+</p>
+
+<div class="jumbotron col-md-8 col-md-offset-2 text-center card-border" style="background-color:white;padding:20px">
+  <h1><%= @book.title %></h1>
+  <img class="large-cover" src="<%= @cover_url %>" alt="" align="left" style="padding:20px"/>
+  <h2 class="text-center">Author: <%= @book.author_first_name %> <%= @book.author_last_name %></h2>
+  <p class="text-center">ISBN: <%= @book.isbn %></p>
+  <p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Favorite</a>
+  <a class="btn btn-default btn-lg" href="#" role="button">Mark as Read</a>
+  </p>
+
+  <% if @book_info[:items].nil? %>
+  <p align="left">Book Description: Not Available</p></br>
+  <% else %>
+  <p align="left">Book Description:  <%= @book_description %></p></br>
   <% end %>
+
+  <p class="text-center">
+  <b>Subjects:</b> </br><%= @book_subjects.join(", ") %>
+  </p>
 </div>
-</p>
-
-<% if @book_info[:items].nil? %>
-<p class="text-center">Book Description: Not Available</p></br>
-<% else %>
-<p class="text-center">Book Description:  <%= @book_description %></p></br>
-<% end %>
-
-<p class="text-center">
-<b>Subjects:</b> </br><% @book_subjects.each do |subject| %>
-<%= subject %></br>
-<% end %>
-</p>

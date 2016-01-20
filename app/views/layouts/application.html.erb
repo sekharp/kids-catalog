@@ -8,17 +8,13 @@
 </head>
 <body>
 <%= render partial: 'layouts/navbar' %>
-
 <% if flash[:success] %>
-  <div id="nav-bar" class="green lighten-2 alert white-text">
-  <p><%= raw(flash[:success]) %></p>
+  <div class="alert alert-success" role="alert"><%= flash[:success] %></div>
   </div>
 <% else %>
-  <div id="nav-bar" class="blue lighten-2 alert white-text">
   <% flash.each do |type, message| %>
-    <p><%= content_tag(:div, message) %></p>
+    <div class="alert alert-info" role="alert"><%= content_tag(:div, message) %></div>
   <% end %>
-  </div>
 <% end %>
 
 <%= yield %>
