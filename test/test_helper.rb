@@ -7,13 +7,13 @@ require 'rails/test_help'
 require 'minitest/pride'
 require 'capybara/rails'
 require 'webmock/minitest'
-# require 'vcr'
+require 'vcr'
 
 class ActiveSupport::TestCase
-  # VCR.configure do |config|
-  #   config.cassette_library_dir = "test/cassettes"
-  #   config.hook_into(:webmock)
-  # end
+  VCR.configure do |config|
+    config.cassette_library_dir = "test/cassettes"
+    config.hook_into(:webmock)
+  end
 end
 
 class ActionDispatch::IntegrationTest
