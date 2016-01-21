@@ -1,5 +1,5 @@
   <div class="row" style="padding:20px">
-    <h2 class="text-center">Recent Books</h2>
+    <h1 class="text-center">Recent Books</h1>
       <% @recent_books.each do |book| %>
         <% cache(book, expires_in: 30.days) do %>
           <div class="col-sm-6 col-md-3">
@@ -7,8 +7,7 @@
               <img class="book-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
               <div class="caption">
                 <h3><a href="<%= book_path(book.id) %>"><%= book.title %></a></h3>
-                <p>By <%= book.author_first_name %> <%= book.author_last_name %></p>
-                <p style="vertical-align:bottom"><a href="#" class="btn btn-primary" role="button">Favorite</a> <a href="#" class="btn btn-default" role="button">Mark As Read</a></p>
+                <b><h4>By <%= book.author_first_name %> <%= book.author_last_name %></h4></b>
               </div>
             </div>
           </div>
@@ -26,8 +25,7 @@
               <img class="book-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
               <div class="caption">
                 <h3><a href="<%= book_path(book.id) %>"><%= book.title %></a></h3>
-                <p>By <%= book.author_first_name %> <%= book.author_last_name %></p>
-                <p style="vertical-align:bottom"><a href="#" class="btn btn-primary" role="button">Favorite</a> <a href="#" class="btn btn-default" role="button">Mark As Read</a></p>
+                <b><h4>By <%= book.author_first_name %> <%= book.author_last_name %></h4></b>
               </div>
             </div>
           </div>
