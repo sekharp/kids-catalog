@@ -17,3 +17,6 @@
 
 # Ignore coverage
 /coverage
+
+# Ignore cassettes from VCR
+/test/cassettes
