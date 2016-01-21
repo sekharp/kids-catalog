@@ -1,18 +1,21 @@
-<div id="profile">
-  <h2>Profile</h2>
-  <img src="<%= @user.image_url %>" alt="" />
-  <p>
-    <strong>First name: </strong><%= @user.first_name %>
-  </p>
-  <p>
-    <strong>Last name: </strong><%= @user.last_name %>
-  </p>
-  <p>
-    <strong>Email: </strong><%= @user.email %>
-  </p>
+<div class="col-sm-9 col-md-6">
+  <div class="thumbnail card-border" style="padding:20px">
+    <div id="profile">
+      <h2>Profile</h2>
+      <img class="col-sm-6 col-md-6" src="<%= @user.image_url %>" alt="" />
+      <p>
+        <strong>First name: </strong><%= @user.first_name %>
+      </p>
+      <p>
+        <strong>Last name: </strong><%= @user.last_name %>
+      </p>
+      <p>
+        <strong>Email: </strong><%= @user.email %>
+      </p>
 
-  <div id='user-<%= @user.id %>-button' class="waves-effect waves-light btn blue">
-    <%= button_to "Edit Profile", dashboard_edit_path, method: :get %>
+      <div id='user-<%= @user.id %>-button' class="waves-effect waves-light btn blue">
+        <%= button_to "Edit Profile", dashboard_edit_path, method: :get %>
+      </div>
+    </div>
   </div>
-
 </div>

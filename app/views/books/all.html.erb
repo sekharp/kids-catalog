@@ -13,8 +13,8 @@
   <% cache(action: "all", action_suffix: "open_library", expires_in: 30.days) do %>
     <% @all_books.each do |book| %>
       <div class="row col-md-offset-1">
-        <div class="col-md-2">
-          <a href="#">
+        <div class="col-md-3">
+          <a href="<%= book_path(book.id) %>">
             <img class="all-books-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
             <div class="book-title">
               <a href="<%= book_path(book.id) %>"><%= book.title %></a>
@@ -24,4 +24,4 @@
       </div>
     <% end %>
   <% end %>
-</div>
+</div><br>

@@ -4,7 +4,9 @@
         <% cache(book, expires_in: 30.days) do %>
           <div class="col-sm-6 col-md-3">
             <div class="thumbnail card-border" style="padding:20px">
-              <img class="book-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
+              <a href="<%= book_path(book.id) %>">
+                <img class="book-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
+              </a>
               <div class="caption">
                 <h3><a href="<%= book_path(book.id) %>"><%= book.title %></a></h3>
                 <b><h4>By <%= book.author_first_name %> <%= book.author_last_name %></h4></b>
@@ -22,7 +24,9 @@
         <% cache(book, expires_in: 30.days) do %>
           <div class="col-sm-6 col-md-3">
             <div class="thumbnail card-border" style="padding:20px">
-              <img class="book-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
+              <a href="<%= book_path(book.id) %>">
+                <img class="book-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
+              </a>
               <div class="caption">
                 <h3><a href="<%= book_path(book.id) %>"><%= book.title %></a></h3>
                 <b><h4>By <%= book.author_first_name %> <%= book.author_last_name %></h4></b>
