@@ -4,13 +4,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email])
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Logged in as #{@user.first_name} #{@user.last_name}"
       redirect_to dashboard_path
     else
-      binding.pry
       flash.now[:error] = "Something went wrong. Please try again."
       render :new
     end
@@ -30,19 +29,9 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.update(user_params)
+    @user.update(first_name: params[:first_name], last_name: params[:last_name], email: params[:email])
 
     flash.notice = "Profile Updated!"
     redirect_to dashboard_path
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:first_name,
-                                 :last_name,
-                                 :email,
-                                 :grade,
-                                 :password)
   end
 end

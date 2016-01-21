@@ -8,9 +8,11 @@ class ApplicationController < ActionController::Base
     @service_connection ||= LibraryService.new
   end
 
+  # :nocov:
   def googlebooks(isbn)
     GoogleBooks.search(isbn).response
   end
+  # :nocov:
 
   def parse(response)
     JSON.parse(response.body, symbolize_names: true)

@@ -3,7 +3,7 @@ require 'book/response'
 
 require 'httparty'
 require 'cgi'
-
+# :nocov:
 module GoogleBooks
 
   include HTTParty
@@ -59,3 +59,4 @@ module GoogleBooks
     end
   end
 end
+# :nocov:

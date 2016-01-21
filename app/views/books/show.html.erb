@@ -1,8 +1,7 @@
 <div class="jumbotron col-md-8 col-md-offset-2 text-center card-border" style="background-color:white;padding:20px">
-  <h1><%= @show_book.title %></h1>
   <% cache(@show_book.book, expires_in: 30.days) do %>
+  <h1><%= @show_book.title %></h1>
     <img class="large-cover" src="<%= @show_book.cover_url %>" alt="" align="left" style="padding:20px"/>
-  <% end %>
   <h2 class="text-center">Author: <%= @show_book.author_name %></h2>
   <p class="text-center">ISBN: <%= @show_book.isbn %></p>
     <p class="text-center">
@@ -24,6 +23,12 @@
   <% end %>
 
   <p class="text-center">
-  <b>Subjects:</b> </br><%= @show_book.subjects.join(", ") %>
+  <b>Subjects:</b></br>
+  <% if @show_book.subjects.nil? %>
+    Not Available
+  <% else %>
+    <%= @show_book.subjects.join(", ") %>
+  <% end %>
   </p>
+  <% end %>
 </div>

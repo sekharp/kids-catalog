@@ -1,4 +1,5 @@
 module BooksHelper
+  # :nocov:
   def favorite_button_for(show_book)
     if show_book.book.user_books.where(book_id: show_book.book_id, user_id: current_user.id).empty?
       'books/first_time_favorite_button'
@@ -26,4 +27,5 @@ module BooksHelper
       'books/read_button'
     end
   end
+  # :nocov:
 end
