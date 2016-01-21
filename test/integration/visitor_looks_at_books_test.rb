@@ -27,7 +27,6 @@ class VisitorLooksAtBooksTest < ActionDispatch::IntegrationTest
     VCR.use_cassette('visitor') do
       book = Book.first
       visit "/books/#{book.id}"
-      save_and_open_page
     end
   end
 end
