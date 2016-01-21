@@ -1,5 +1,6 @@
 require 'book/item'
 
+# :nocov:
 module GoogleBooks
   class Response
     attr_reader :response
@@ -25,3 +26,4 @@ module GoogleBooks
     end
   end
 end
+# :nocov:
