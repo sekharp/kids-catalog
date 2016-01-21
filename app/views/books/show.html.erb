@@ -1,9 +1,11 @@
 <div class="jumbotron col-md-8 col-md-offset-2 text-center card-border" style="background-color:white;padding:20px">
-  <% cache(@show_book.book, expires_in: 30.days) do %>
+  <% cache(action: "show", action_suffix: "open_library", expires_in: 30.days) do %>
   <h1><%= @show_book.title %></h1>
     <img class="large-cover" src="<%= @show_book.cover_url %>" alt="" align="left" style="padding:20px"/>
   <h2 class="text-center">Author: <%= @show_book.author_name %></h2>
   <p class="text-center">ISBN: <%= @show_book.isbn %></p>
+  <% end %>
+
     <p class="text-center">
       <div class="text-center">
         <% if current_user %>
@@ -16,6 +18,7 @@
       </div>
     </p>
 
+  <% cache(action: "show", action_suffix: "google_books", expires_in: 30.days) do %>
   <% if @show_book.google_books_data.nil? %>
     <p align="left">Book Description: Not Available</p></br>
   <% else %>
