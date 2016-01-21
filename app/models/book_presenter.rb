@@ -39,11 +39,9 @@ class BookPresenter
     self.open_library_data[:subjects]
   end
 
-  # :nocov:
   def google_books_data
     parse(googlebooks(self.isbn))
   end
-  # :nocov:
 
   def description
     self.google_books_data[:items][0][:volumeInfo][:description] unless self.google_books_data[:items].nil?
