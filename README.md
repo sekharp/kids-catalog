@@ -3,3 +3,5 @@
 * Prototyped an elementary school platform for client Mandarin Library Automation
 * Focused on parsing CSVs, Google OAuth implementation, database modeling and testing external APIs
 * Tech Stack: Rails, JavaScript, jQuery, Bootstrap CSS, Open Library API, Google Books API, MiniTest, VCR/Webmock
+
+![Kids Catalog Screenshot](/public/screenshot.png)
