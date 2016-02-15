@@ -23,4 +23,9 @@ class User < ActiveRecord::Base
     book_ids = user_books.where(favorited: true).pluck(:book_id)
     Book.find(book_ids)
   end
+
+  def read_books
+    book_ids = user_books.where(read: true).pluck(:book_id)
+    Book.find(book_ids)
+  end
 end

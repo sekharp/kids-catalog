@@ -13,7 +13,7 @@ class UserLogsInWithGoogleTest < ActionDispatch::IntegrationTest
 
     click_link "Sign in with Google"
 
-    assert_equal root_path, current_path
+    assert_equal dashboard_path, current_path
     assert page.has_content?("Logout")
 
     visit dashboard_path

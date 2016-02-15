@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create
     user = User.create_or_find_by_auth(auth_params)
     session[:user_id] = user.id
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   def destroy
