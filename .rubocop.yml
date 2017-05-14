@@ -7,8 +7,5 @@ AllCops:
     - lib/**/*.rake
   Exclude:
     - db/schema.rb
-    - config/environments/development.rb
-    - config/environments/production.rb
-    - config/initializers/backtrace_silencers.rb
     - config/application.rb
     - Gemfile

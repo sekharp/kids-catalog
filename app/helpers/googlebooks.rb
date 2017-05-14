@@ -25,6 +25,7 @@ module GoogleBooks
     #   Google API from applications residing on decentralized cloud servers
     #   See http://www.google.com/support/forum/p/booksearch-apis/thread?tid=2034bed9a98c15cb&hl=en
 
+    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     def search(query, options = {}, remote_ip = nil)
       (headers 'X-Forwarded-For' => remote_ip.to_s) unless remote_ip.nil?
       self.parameters = { 'q' => query }
@@ -36,9 +37,9 @@ module GoogleBooks
       parameters['key'] = options[:api_key] if options[:api_key]
       parameters['orderBy'] = 'newest' if options[:order_by].eql?('newest')
       parameters['country'] = options[:country] if options[:country]
-
       Response.new(get(url.to_s))
     end
+    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
     private
 
@@ -48,7 +49,7 @@ module GoogleBooks
         .join('&')
     end
 
-    # Queries the new Google API. The former Google Book Search API is deprecated
+    # Queries the new Google API. Former Google Book Search API is deprecated
     # http://code.google.com/apis/books/docs/gdata/developers_guide_protocol.html
     def url
       URI::HTTPS.build(host: 'www.googleapis.com',

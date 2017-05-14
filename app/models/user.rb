@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :books, through: :user_books
   validates_presence_of :email
 
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def self.create_or_find_by_auth(auth)
     user = User.find_or_create_by(provider: auth['provider'], uid: auth['uid'])
 
@@ -18,6 +19,7 @@ class User < ActiveRecord::Base
     user.save
     user
   end
+  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
   def favorite_books
     book_ids = user_books.where(favorited: true).pluck(:book_id)

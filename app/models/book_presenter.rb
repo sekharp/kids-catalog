@@ -44,7 +44,8 @@ class BookPresenter
   end
 
   def description
-    google_books_data[:items][0][:volumeInfo][:description] unless google_books_data[:items].nil?
+    return if google_books_data[:items].nil?
+    google_books_data[:items][0][:volumeInfo][:description]
   end
 
   private

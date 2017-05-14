@@ -13,7 +13,7 @@ module GoogleBooks
     # Returns nil if no records are returned. Otherwise, response returns
     # hash of generally unusable Google API specific data.
     def each
-      return [] if total_items == 0
+      return [] if total_items.zero?
       @response['items'].each do |item|
         yield(Item.new(item))
       end

@@ -7,7 +7,9 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test '#create saves a new user' do
-    post :create, first_name: 'Sekhar', last_name: 'Paladugu', email: 'sekharp@gmail.com'
+    post :create, first_name: 'Sekhar',
+                  last_name: 'Paladugu',
+                  email: 'sekharp@gmail.com'
     assert_redirected_to(dashboard_path)
   end
 

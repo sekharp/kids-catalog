@@ -5,7 +5,10 @@ class UserChangesBookStatusTest < ActionDispatch::IntegrationTest
     Capybara.app = KidsCatalog::Application
     stub_omniauth
     login_user
-    @book = Book.create(title: 'A book', author_first_name: 'Sekhar', author_last_name: 'Paladugu', isbn: '0689857578')
+    @book = Book.create(title: 'A book',
+                        author_first_name: 'Sekhar',
+                        author_last_name: 'Paladugu',
+                        isbn: '0689857578')
   end
 
   test 'user can favorite book' do
