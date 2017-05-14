@@ -13,6 +13,74 @@
  *= require_tree .
  *= require_self
  */
- // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
- @import "bootstrap-sprockets";
- @import "bootstrap";
+
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+.book-cover {
+    height: 225px !important;
+    width: auto;
+}
+
+.books-index {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.all-books-cover {
+    height: auto;
+    width: 250px;
+}
+
+.profile {
+    padding: 20px;
+}
+
+.profile-div {
+    padding: 20px !important;
+}
+
+.large-cover {
+    height: 400px
+}
+
+.card-border {
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.thumbnail {
+    height: 450px;
+}
+
+.action-panel {
+    background-color: white;
+    outline: 1px solid black;
+    background-color: white;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
+}
+
+.div-link {
+    display: block;
+}
+
+.navbar {
+    font-size: 16px;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 0px !important;
+}
+
+.inner {
+    text-align: center;
+}
+
+.library-image {
+    border: 1px solid black;
+    width: 1200px;
+    display: inline-block;
+}
+
+body {
+    background-color: lightgray !important;
+}

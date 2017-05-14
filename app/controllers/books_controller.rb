@@ -3,7 +3,7 @@ require 'googlebooks'
 class BooksController < ApplicationController
   def index
     @recent_books = Book.all.order('created_at DESC').first(4)
-    @teacher_books = Book.find([1, 11, 33, 49])
+    @teacher_books = Book.find([1, 11, 33, 51])
   end
 
   def show

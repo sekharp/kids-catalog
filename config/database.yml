@@ -80,4 +80,6 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: kids-catalog_production
