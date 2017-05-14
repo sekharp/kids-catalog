@@ -13,7 +13,7 @@
 }
 
 .card-border {
-    outline: 1px solid black;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .thumbnail {
@@ -34,6 +34,7 @@
 
 .navbar {
     font-size: 16px;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .inner {
@@ -47,5 +48,5 @@
 }
 
 body {
-    background-image: url("http://img01.deviantart.net/5e6e/i/2010/201/8/a/rice_paper_texture_by_maplerose_stock.jpg");
+    background-color: lightgray !important;
 }

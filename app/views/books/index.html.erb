@@ -1,5 +1,6 @@
-  <div class="row" style="padding:20px">
-    <h1 class="text-center">Recent Books</h1>
+<div style="padding:20px">
+  <div class="row" >
+    <h2 align="left" style="padding-left:20px">Recent Books</h1>
       <% @recent_books.each do |book| %>
         <% cache(book, expires_in: 30.days) do %>
           <div class="col-sm-6 col-md-3">
@@ -17,23 +18,24 @@
       <% end %>
   </div>
 
-<% cache(action: "index", action_suffix: "teacher_books") do %>
-  <div class="row" style="padding:20px">
-    <h2 class="text-center">Teacher's Choice Books</h2>
-      <% @teacher_books.each do |book| %>
-        <% cache(book, expires_in: 30.days) do %>
-          <div class="col-sm-6 col-md-3">
-            <div class="thumbnail card-border" style="padding:20px">
-              <a href="<%= book_path(book.id) %>">
-                <img class="book-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
-              </a>
-              <div class="caption">
-                <h3><a href="<%= book_path(book.id) %>"><%= book.title %></a></h3>
-                <b><h4>By <%= book.author_first_name %> <%= book.author_last_name %></h4></b>
+  <% cache(action: "index", action_suffix: "teacher_books") do %>
+    <div class="row">
+      <h2 align="left" style="padding-left:20px">Teacher's Choice Books</h2>
+        <% @teacher_books.each do |book| %>
+          <% cache(book, expires_in: 30.days) do %>
+            <div class="col-sm-6 col-md-3">
+              <div class="thumbnail card-border" style="padding:20px">
+                <a href="<%= book_path(book.id) %>">
+                  <img class="book-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
+                </a>
+                <div class="caption">
+                  <h3><a href="<%= book_path(book.id) %>"><%= book.title %></a></h3>
+                  <b><h4>By <%= book.author_first_name %> <%= book.author_last_name %></h4></b>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+</div>
