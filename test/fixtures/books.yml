@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyString
-  author: MyString
+  title: HarryPotter
+  description: HarryPotterWizard
+  author: JKRowling
 
 two:
-  title: MyString
-  description: MyString
-  author: MyString
+  title: CalvinAndHobbes
+  description: CalvinAndHobbesItsAMagicalWorld
+  author: BillWatterson
