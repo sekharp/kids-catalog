@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+  # rubocop:disable Metrics/BlockLength
   test 'user can be found' do
     auth_info = OmniAuth::AuthHash.new(provider: 'google_oauth2',
                                        uid: '102656813292713106611',
@@ -18,7 +19,9 @@ class UserTest < ActiveSupport::TestCase
                                          expires: true
                                        },
                                        extra: {
-                                         id_token: Array.new(1000) { 'string' }.join, # this huge chunk is used to test for CookieOverflow exception
+                                         # CookieOverflow exception test
+                                         id_token: Array.new(1000) { 'string' }
+                                          .join,
                                          raw_info: OmniAuth::AuthHash.new(
                                            email: 'test@example.com',
                                            email_verified: 'true',
@@ -52,7 +55,9 @@ class UserTest < ActiveSupport::TestCase
                                          expires: true
                                        },
                                        extra: {
-                                         id_token: Array.new(1000) { 'string' }.join, # this huge chunk is used to test for CookieOverflow exception
+                                         # CookieOverflow exception test
+                                         id_token: Array.new(1000) { 'string' }
+                                          .join,
                                          raw_info: OmniAuth::AuthHash.new(
                                            email: 'test@example.com',
                                            email_verified: 'true',
@@ -64,11 +69,18 @@ class UserTest < ActiveSupport::TestCase
     user = User.last
 
     book = Book.create(title: 'Test Book')
-    UserBook.create(user_id: user.id, book_id: book.id, favorited: true, read: false)
+    UserBook.create(user_id: user.id,
+                    book_id: book.id,
+                    favorited: true,
+                    read: false)
 
     Book.create(title: 'Test Book Two')
-    UserBook.create(user_id: user.id, book_id: book.id, favorited: false, read: false)
+    UserBook.create(user_id: user.id,
+                    book_id: book.id,
+                    favorited: false,
+                    read: false)
 
     assert_equal [book], user.favorite_books
   end
+  # rubocop:enable Metrics/BlockLength
 end

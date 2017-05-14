@@ -3,8 +3,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def create
-    @user = User.new(first_name: params[:first_name], last_name: params[:last_name], email: params[:email])
+    @user = User.new(first_name: params[:first_name],
+                     last_name: params[:last_name],
+                     email: params[:email])
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Logged in as #{@user.first_name} #{@user.last_name}"
@@ -14,6 +17,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
+  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
   def show
     if current_user
@@ -29,7 +33,9 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.update(first_name: params[:first_name], last_name: params[:last_name], email: params[:email])
+    @user.update(first_name: params[:first_name],
+                 last_name: params[:last_name],
+                 email: params[:email])
 
     flash.notice = 'Profile Updated!'
     redirect_to dashboard_path

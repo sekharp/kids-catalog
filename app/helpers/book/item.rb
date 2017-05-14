@@ -1,7 +1,11 @@
 # :nocov:
 module GoogleBooks
   class Item
-    attr_reader :kind, :id, :title, :titles_array, :authors, :authors_array, :publisher, :published_date, :description, :isbn, :isbn_10, :isbn_13, :other_identifier, :page_count, :print_type, :categories, :average_rating, :ratings_count, :language, :preview_link, :info_link, :sale_info
+    attr_reader :kind, :id, :title, :titles_array, :authors, :authors_array,
+                :publisher, :published_date, :description, :isbn, :isbn10,
+                :isbn13, :other_identifier, :page_count, :print_type,
+                :categories, :average_rating, :ratings_count, :language,
+                :preview_link, :info_link, :sale_info
 
     def initialize(item)
       @item = item
@@ -15,7 +19,9 @@ module GoogleBooks
       opts[:zoom] ||= 1
       opts[:curl] ||= false
       begin
-        @volume_info['imageLinks']['thumbnail'].gsub('zoom=1', "zoom=#{opts[:zoom]}").gsub('&edge=curl', "&edge=#{opts[:curl] ? 'curl' : 'none'}")
+        @volume_info['imageLinks']['thumbnail']
+          .gsub('zoom=1', "zoom=#{opts[:zoom]}")
+          .gsub('&edge=curl', "&edge=#{opts[:curl] ? 'curl' : 'none'}")
       rescue
         nil
       end
@@ -23,6 +29,7 @@ module GoogleBooks
 
     private
 
+    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     def retrieve_attribute
       @kind = @item['kind']
       @id = @item['id']
@@ -49,25 +56,28 @@ module GoogleBooks
 
     def build_title
       title = [@volume_info['title']].flatten.join(': ')
-      @volume_info['subtitle'].nil? ? title : title + ': ' + @volume_info['subtitle']
+      if @volume_info['subtitle'].nil?
+        title
+      else
+        title + ': ' + @volume_info['subtitle']
+      end
     end
 
     def retrieve_industry_identifiers
       return unless @volume_info['industryIdentifiers']
-
       @volume_info['industryIdentifiers'].each do |identifier_hash|
         identifier = identifier_hash['identifier']
-
         case identifier_hash['type']
         when 'ISBN_13'
-          @isbn = @isbn_13 = identifier
+          @isbn = @isbn13 = identifier
         when 'ISBN_10'
-          @isbn_10 = identifier
+          @isbn10 = identifier
         when 'OTHER'
           @other_identifier = identifier
         end
       end
     end
+    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
   end
 end
 # :nocov:
