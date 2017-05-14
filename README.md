@@ -6,6 +6,8 @@
 
 **Tech Stack: Rails, JavaScript, jQuery, Bootstrap CSS, Open Library API, Google Books API, MiniTest, VCR/Webmoc, Postgres**
 
+![Kids Catalog Screenshot](/public/screenshot.png)
+
 ## Setup
 
 * Note: Make sure your postgres is up and running, and get application.yml google client ID and secret
@@ -13,5 +15,7 @@
 * `rake db:setup`
 * `rake import`
 * `rails s`
+* `rake test` to run test suite
 
-![Kids Catalog Screenshot](/public/screenshot.png)
+## Test Coverage
+SimpleCov: 162 / 168 LOC (96.43%) covered.
