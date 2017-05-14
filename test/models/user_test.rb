@@ -66,7 +66,7 @@ class UserTest < ActiveSupport::TestCase
     book = Book.create(title: 'Test Book')
     UserBook.create(user_id: user.id, book_id: book.id, favorited: true, read: false)
 
-    book_two = Book.create(title: 'Test Book Two')
+    Book.create(title: 'Test Book Two')
     UserBook.create(user_id: user.id, book_id: book.id, favorited: false, read: false)
 
     assert_equal [book], user.favorite_books
