@@ -2,8 +2,8 @@ class LibraryService
   attr_reader :connection, :cover_connection
 
   def initialize
-    @connection ||= Hurley::Client.new("http://openlibrary.org/")
-    @cover_connection ||= Hurley::Client.new("http://covers.openlibrary.org/")
+    @connection ||= Hurley::Client.new('http://openlibrary.org/')
+    @cover_connection ||= Hurley::Client.new('http://covers.openlibrary.org/')
   end
 
   def book(isbn)
@@ -12,8 +12,8 @@ class LibraryService
 
   def cover_url(isbn)
     response = cover_connection.get("b/isbn/#{isbn}-L.jpg")
-    if response.header["Content-Type"].nil?
-      "http://i.imgur.com/sJ3CT4V.gif"
+    if response.header['Content-Type'].nil?
+      'http://i.imgur.com/sJ3CT4V.gif'
     else
       "http://covers.openlibrary.org/b/isbn/#{isbn}-L.jpg"
     end

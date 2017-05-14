@@ -1,7 +1,7 @@
 <div class="jumbotron col-md-8 col-md-offset-2 text-center card-border" style="background-color:white;padding:20px">
   <% cache(action: "show", action_suffix: "open_library", expires_in: 30.days) do %>
     <h1><%= @show_book.title %></h1>
-      <img class="large-cover" src="<%= @show_book.cover_url %>" alt="" align="left" style="padding:20px"/>
+    <img class="large-cover" src="<%= @show_book.cover_url %>" alt="" align="center" style="padding:20px"/>
     <h2 class="text-center">Author: <%= @show_book.author_name %></h2>
     <p class="text-center">ISBN: <%= @show_book.isbn %></p>
   <% end %>
@@ -20,13 +20,13 @@
 
   <% cache(action: "show", action_suffix: "google_books", expires_in: 30.days) do %>
     <% if @show_book.google_books_data.nil? %>
-      <p align="left">Book Description: Not Available</p></br>
+      <p align="left"><b>Book Description</b><br/>Not Available</p></br>
     <% else %>
-      <p align="left">Book Description:  <%= @show_book.description %></p></br>
+      <p align="left"><b>Book Description</b><br/><%= @show_book.description %></p></br>
     <% end %>
 
-    <p class="text-center">
-    <b>Subjects:</b></br>
+    <p align="left">
+    <b>Subjects</b></br>
     <% if @show_book.subjects.nil? %>
       Not Available
     <% else %>

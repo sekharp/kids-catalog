@@ -1,5 +1,4 @@
-require 'test_helper'
+require './test/test_helper'
 
 class BookTest < ActiveSupport::TestCase
-
 end

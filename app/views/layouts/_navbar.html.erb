@@ -8,15 +8,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand glyphicon glyphicon-book" href="<%= root_path %>"> Kids Catalog</a>
+      <a class="navbar-brand" href="<%= root_path %>"><i class="glyphicon glyphicon-book"></i>&nbsp;&nbsp;Kids Catalog</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="<%= books_path %>">Library Home</a></li>
-        <li><a href="<%= dashboard_path %>">Student Profile</a></li>
-        <li><a href="<%= all_books_path %>">Search Books<span class="sr-only">(current)</span></a></li>
+        <li class="<%= "active" if books_path == request.fullpath %>"><a href="<%= books_path %>">Library Home</a></li>
+        <li class="<%= "active" if dashboard_path == request.fullpath %>"><a href="<%= dashboard_path %>">Student Profile</a></li>
+        <li class="<%= "active" if all_books_path == request.fullpath %>"><a href="<%= all_books_path %>">Search Books<span class="sr-only">(current)</span></a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

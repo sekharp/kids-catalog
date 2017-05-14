@@ -2,7 +2,7 @@
   <div class="thumbnail card-border" style="padding:20px">
     <div id="profile">
       <h2>Profile</h2>
-      <img class="col-sm-6 col-md-6" src="<%= @user.image_url %>" alt="" />
+      <img class="col-sm-4 col-md-4" src="<%= @user.image_url %>" alt="" />
       <p>
         <strong>First name: </strong><%= @user.first_name %>
       </p>
@@ -24,34 +24,50 @@
   <h1 class="text-center">Your Favorite Books</h1>
 </div>
 
-<% @user.favorite_books.each do |book| %>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail card-border" style="padding:20px">
-      <a href="<%= book_path(book.id) %>">
-        <img class="book-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
-      </a>
-      <div class="caption">
-        <h3><a href="<%= book_path(book.id) %>"><%= book.title %></a></h3>
-        <b><h4>By <%= book.author_first_name %> <%= book.author_last_name %></h4></b>
+<% if @user.favorite_books.empty? %>
+  <a class="div-link" href="<%= books_path %>">
+    <div class="col-md-8 col-md-offset-2 text-center action-panel">
+      <h3>Head over and keep track of which books you've enjoyed! <i class="glyphicon glyphicon-heart"></i></h3>
+    </div>
+  </a>
+<% else %>
+  <% @user.favorite_books.each do |book| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail card-border" style="padding:20px">
+        <a href="<%= book_path(book.id) %>">
+          <img class="book-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
+        </a>
+        <div class="caption">
+          <h3><a href="<%= book_path(book.id) %>"><%= book.title %></a></h3>
+          <b><h4>By <%= book.author_first_name %> <%= book.author_last_name %></h4></b>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
 
 <div class="col-md-12">
   <h1 class="text-center">Books You've Read</h1>
 </div>
 
-<% @user.read_books.each do |book| %>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail card-border" style="padding:20px">
-      <a href="<%= book_path(book.id) %>">
-        <img class="book-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
-      </a>
-      <div class="caption">
-        <h3><a href="<%= book_path(book.id) %>"><%= book.title %></a></h3>
-        <b><h4>By <%= book.author_first_name %> <%= book.author_last_name %></h4></b>
+<% if @user.read_books.empty? %>
+  <a class="div-link" href="<%= books_path %>">
+    <div class="col-md-8 col-md-offset-2 text-center action-panel">
+      <h3>Head over and keep track of which books you've read! <i class="glyphicon glyphicon-book"></i></h3>
+    </div>
+  </a>
+<% else %>
+  <% @user.read_books.each do |book| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail card-border" style="padding:20px">
+        <a href="<%= book_path(book.id) %>">
+          <img class="book-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
+        </a>
+        <div class="caption">
+          <h3><a href="<%= book_path(book.id) %>"><%= book.title %></a></h3>
+          <b><h4>By <%= book.author_first_name %> <%= book.author_last_name %></h4></b>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
