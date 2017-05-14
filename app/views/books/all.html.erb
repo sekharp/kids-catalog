@@ -12,14 +12,15 @@
 <div class="all-books">
   <% cache(action: "all", action_suffix: "open_library", expires_in: 30.days) do %>
     <% @all_books.each do |book| %>
-      <div class="row col-md-offset-1">
-        <div class="col-md-3">
+      <div class="col-sm-6 col-md-3">
+        <div class="thumbnail card-border" style="padding:20px">
           <a href="<%= book_path(book.id) %>">
-            <img class="all-books-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
-            <div class="book-title">
-              <a href="<%= book_path(book.id) %>"><%= book.title %></a>
-            </div>
+            <img class="book-cover" src="<%= book.cover_url(book.isbn) %>" alt="" /><br>
           </a>
+          <div class="caption">
+            <h3><a href="<%= book_path(book.id) %>"><%= book.title %></a></h3>
+            <b><h4>By <%= book.author_first_name %> <%= book.author_last_name %></h4></b>
+          </div>
         </div>
       </div>
     <% end %>
