@@ -9,7 +9,7 @@ require 'capybara/rails'
 require 'webmock/minitest'
 require 'vcr'
 
-class ActiveSupport
+module ActiveSupport
   class TestCase
     VCR.configure do |config|
       config.cassette_library_dir = 'test/cassettes'
@@ -18,7 +18,7 @@ class ActiveSupport
   end
 end
 
-class ActionDispatch
+module ActionDispatch
   class IntegrationTest
     include Capybara::DSL
     DatabaseCleaner.strategy = :transaction
