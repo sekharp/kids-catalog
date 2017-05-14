@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Logged in as #{@user.first_name} #{@user.last_name}"
       redirect_to dashboard_path
     else
-      flash.now[:error] = "Something went wrong. Please try again."
+      flash.now[:error] = 'Something went wrong. Please try again.'
       render :new
     end
   end
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     @user = current_user
     @user.update(first_name: params[:first_name], last_name: params[:last_name], email: params[:email])
 
-    flash.notice = "Profile Updated!"
+    flash.notice = 'Profile Updated!'
     redirect_to dashboard_path
   end
 end

@@ -1,6 +1,5 @@
 # :nocov:
 module GoogleBooks
-
   class Item
     attr_reader :kind, :id, :title, :titles_array, :authors, :authors_array, :publisher, :published_date, :description, :isbn, :isbn_10, :isbn_13, :other_identifier, :page_count, :print_type, :categories, :average_rating, :ratings_count, :language, :preview_link, :info_link, :sale_info
 
@@ -15,10 +14,14 @@ module GoogleBooks
     def image_link(opts = {})
       opts[:zoom] ||= 1
       opts[:curl] ||= false
-      @volume_info['imageLinks']['thumbnail'].gsub('zoom=1', "zoom=#{opts[:zoom]}").gsub('&edge=curl', "&edge=#{opts[:curl] ? 'curl' : 'none'}") rescue nil
+      begin
+        @volume_info['imageLinks']['thumbnail'].gsub('zoom=1', "zoom=#{opts[:zoom]}").gsub('&edge=curl', "&edge=#{opts[:curl] ? 'curl' : 'none'}")
+      rescue
+        nil
+      end
     end
 
-  private
+    private
 
     def retrieve_attribute
       @kind = @item['kind']
@@ -46,28 +49,25 @@ module GoogleBooks
 
     def build_title
       title = [@volume_info['title']].flatten.join(': ')
-      @volume_info['subtitle'].nil? ? title : title + ": " + @volume_info['subtitle']
+      @volume_info['subtitle'].nil? ? title : title + ': ' + @volume_info['subtitle']
     end
 
     def retrieve_industry_identifiers
-
       return unless @volume_info['industryIdentifiers']
 
       @volume_info['industryIdentifiers'].each do |identifier_hash|
-        identifier = identifier_hash["identifier"]
+        identifier = identifier_hash['identifier']
 
         case identifier_hash['type']
-        when "ISBN_13"
+        when 'ISBN_13'
           @isbn = @isbn_13 = identifier
-        when "ISBN_10"
+        when 'ISBN_10'
           @isbn_10 = identifier
-        when "OTHER"
+        when 'OTHER'
           @other_identifier = identifier
         end
       end
-
     end
   end
-
 end
 # :nocov:

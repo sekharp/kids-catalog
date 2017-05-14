@@ -13,7 +13,7 @@ class FavoritesControllerTest < ActionController::TestCase
     user = User.create
     user_book = UserBook.create(book_id: book.id, user_id: user.id, favorited: true, read: true)
 
-    patch :update, {"book_id"=>book.id, "favorited"=>"true", "user_id"=>user.id, "controller"=>"favorites", "action"=>"update", "id"=>user_book.id}
+    patch :update, 'book_id' => book.id, 'favorited' => 'true', 'user_id' => user.id, 'controller' => 'favorites', 'action' => 'update', 'id' => user_book.id
     assert_redirected_to(book_path(id: book.id))
   end
 
@@ -22,7 +22,7 @@ class FavoritesControllerTest < ActionController::TestCase
     user = User.create
     user_book = UserBook.create(book_id: book.id, user_id: user.id, favorited: true, read: true)
 
-    patch :update, {"book_id"=>book.id, "favorited"=>"false", "user_id"=>user.id, "controller"=>"favorites", "action"=>"update", "id"=>user_book.id}
+    patch :update, 'book_id' => book.id, 'favorited' => 'false', 'user_id' => user.id, 'controller' => 'favorites', 'action' => 'update', 'id' => user_book.id
     assert_redirected_to(book_path(id: book.id))
   end
 
@@ -31,7 +31,7 @@ class FavoritesControllerTest < ActionController::TestCase
     user = User.create
     user_book = UserBook.create(book_id: book.id, user_id: user.id, favorited: true, read: true)
 
-    patch :update, {"book_id"=>book.id, "read"=>"true", "user_id"=>user.id, "controller"=>"favorites", "action"=>"update", "id"=>user_book.id}
+    patch :update, 'book_id' => book.id, 'read' => 'true', 'user_id' => user.id, 'controller' => 'favorites', 'action' => 'update', 'id' => user_book.id
     assert_redirected_to(book_path(id: book.id))
   end
 
@@ -40,7 +40,7 @@ class FavoritesControllerTest < ActionController::TestCase
     user = User.create
     user_book = UserBook.create(book_id: book.id, user_id: user.id, favorited: true, read: true)
 
-    patch :update, {"book_id"=>book.id, "read"=>"false", "user_id"=>user.id, "controller"=>"favorites", "action"=>"update", "id"=>user_book.id}
+    patch :update, 'book_id' => book.id, 'read' => 'false', 'user_id' => user.id, 'controller' => 'favorites', 'action' => 'update', 'id' => user_book.id
     assert_redirected_to(book_path(id: book.id))
   end
 end

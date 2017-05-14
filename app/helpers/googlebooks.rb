@@ -5,12 +5,10 @@ require 'httparty'
 require 'cgi'
 # :nocov:
 module GoogleBooks
-
   include HTTParty
   format :json
 
   class << self
-
     attr_accessor :parameters
 
     # Submits query to the current Google API for Books.
@@ -45,17 +43,17 @@ module GoogleBooks
     private
 
     def query
-      parameters.
-        map { |k, v| "#{k}=#{CGI.escape(v.to_s)}" }.
-        join('&')
+      parameters
+        .map { |k, v| "#{k}=#{CGI.escape(v.to_s)}" }
+        .join('&')
     end
 
     # Queries the new Google API. The former Google Book Search API is deprecated
     # http://code.google.com/apis/books/docs/gdata/developers_guide_protocol.html
     def url
-      URI::HTTPS.build(:host  => 'www.googleapis.com',
-                      :path  => '/books/v1/volumes',
-                      :query => query)
+      URI::HTTPS.build(host: 'www.googleapis.com',
+                       path: '/books/v1/volumes',
+                       query: query)
     end
   end
 end

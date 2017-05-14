@@ -1,4 +1,5 @@
 # encoding: UTF-8
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,46 +12,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119233616) do
-
+ActiveRecord::Schema.define(version: 20_160_119_233_616) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "books", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.string   "author_first_name"
-    t.string   "author_last_name"
-    t.string   "isbn"
+  create_table 'books', force: :cascade do |t|
+    t.string   'title'
+    t.datetime 'created_at',        null: false
+    t.datetime 'updated_at',        null: false
+    t.string   'author_first_name'
+    t.string   'author_last_name'
+    t.string   'isbn'
   end
 
-  create_table "user_books", force: :cascade do |t|
-    t.boolean  "favorited",  default: false
-    t.boolean  "read",       default: false
-    t.integer  "book_id"
-    t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+  create_table 'user_books', force: :cascade do |t|
+    t.boolean  'favorited',  default: false
+    t.boolean  'read',       default: false
+    t.integer  'book_id'
+    t.integer  'user_id'
+    t.datetime 'created_at',                 null: false
+    t.datetime 'updated_at',                 null: false
   end
 
-  add_index "user_books", ["book_id"], name: "index_user_books_on_book_id", using: :btree
-  add_index "user_books", ["user_id"], name: "index_user_books_on_user_id", using: :btree
+  add_index 'user_books', ['book_id'], name: 'index_user_books_on_book_id', using: :btree
+  add_index 'user_books', ['user_id'], name: 'index_user_books_on_user_id', using: :btree
 
-  create_table "users", force: :cascade do |t|
-    t.integer  "grade"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "token"
-    t.string   "email"
-    t.string   "image_url"
-    t.datetime "token_expires_at"
+  create_table 'users', force: :cascade do |t|
+    t.integer  'grade'
+    t.datetime 'created_at',       null: false
+    t.datetime 'updated_at',       null: false
+    t.string   'provider'
+    t.string   'uid'
+    t.string   'first_name'
+    t.string   'last_name'
+    t.string   'token'
+    t.string   'email'
+    t.string   'image_url'
+    t.datetime 'token_expires_at'
   end
 
-  add_foreign_key "user_books", "books"
-  add_foreign_key "user_books", "users"
+  add_foreign_key 'user_books', 'books'
+  add_foreign_key 'user_books', 'users'
 end
