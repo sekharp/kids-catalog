@@ -8,7 +8,7 @@
 
 ## Setup
 
-* Note: Make sure your postgres is up and running
+* Note: Make sure your postgres is up and running, and get application.yml google client ID and secret
 * `bundle`
 * `rake db:setup`
 * `rake import`
