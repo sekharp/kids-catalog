@@ -18,4 +18,4 @@
 * `rake test` to run test suite
 
 ## Test Coverage
-SimpleCov: 162 / 168 LOC (96.43%) covered.
+SimpleCov: 162 / 168 LOC (96.43%) coverage.
