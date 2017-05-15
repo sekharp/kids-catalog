@@ -14,7 +14,7 @@
 * `bundle`
 * `rake db:setup`
 * `rake import`
-* `rails s`
+* `rails s` - hosted at `localhost:3000` by default
 * `rake test` to run test suite
 
 ## Test Coverage
