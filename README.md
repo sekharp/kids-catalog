@@ -6,7 +6,7 @@
 
 **Tech Stack: Rails, JavaScript, jQuery, Bootstrap CSS, Open Library API, Google Books API, MiniTest, VCR/Webmoc, Postgres**
 
-![Kids Catalog GIF](/public/kids_catalog.gif)
+![Kids Catalog GIF](http://g.recordit.co/R0DynxB9nj.gif)
 
 ## Setup
 
